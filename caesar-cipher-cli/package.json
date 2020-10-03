@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/fizik003/caesar-cipher-cli/issues"
   },
-  "homepage": "https://github.com/fizik003/caesar-cipher-cli#readme"
+  "homepage": "https://github.com/fizik003/caesar-cipher-cli#readme",
+  "dependencies": {
+    "commander": "^6.1.0"
+  }
 }
