@@ -1,10 +1,12 @@
-const decoderEncoder = (shift, str, action = "encode") => {
+function decoderEncoder(shift, str, action) {
   if (shift < 0) {
     if (action === "encode") action = "decode";
     else action = "encode";
 
     shift *= -1;
   }
+
+  // console.log(`shif: ${shift} action: ${action} str ${str}`);
   let alphabet = [
     "a",
     "b",
@@ -44,7 +46,8 @@ const decoderEncoder = (shift, str, action = "encode") => {
       continue;
     }
     let symbIndex = alphabet.indexOf(symbol.toLowerCase());
-    let newSymbIndex = symbIndex + shift;
+    let newSymbIndex = symbIndex + +shift;
+    // console.log(`symindex ${symbIndex} newsymbindex ${newSymbIndex}`);
 
     if (newSymbIndex > alphabet.length - 1) {
       newSymbIndex = newSymbIndex % alphabet.length;
@@ -56,9 +59,6 @@ const decoderEncoder = (shift, str, action = "encode") => {
   }
 
   return result;
-};
+}
 
-let v = decoderEncoder(-3, "abc", "encode");
-console.log(v);
-console.log("________________--");
-console.log(decoderEncoder(-3, v, "decode"));
+module.exports = { decoderEncoder };
